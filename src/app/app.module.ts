@@ -13,13 +13,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptorService} from './auth-interceptor.service';
+import { SettingComponent } from './setting/setting.component';
+import { PresentationComponent } from './presentation/presentation.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     CalendarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SettingComponent,
+    PresentationComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ app.use(express.urlencoded());
 app.use(cors());
 app.use('/',route)
 
-sequelize.sync()
+sequelize.sync({force: true})
   .then(result=>{
     app.listen(port,()=>console.log('server running at port 30001'))
   })
