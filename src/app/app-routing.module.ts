@@ -6,13 +6,14 @@ import {CalendarComponent} from './calendar/calendar.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {PresentationComponent} from './presentation/presentation.component';
 import {SettingComponent} from './setting/setting.component';
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'home', component: CalendarComponent},
-  {path: 'presentations', component: PresentationComponent},
-  {path: 'settings', component: SettingComponent},
+  {path: 'home', component: CalendarComponent, canActivate: [AuthGuard]},
+  {path: 'presentations', component: PresentationComponent, canActivate: [AuthGuard]},
+  {path: 'settings', component: SettingComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
 ];

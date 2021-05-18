@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
   onCreateUser(){
    this.authService.onCreateUser(this.registerForm.value).subscribe(res => {
      localStorage.setItem('token', res.token);
-     this.router.navigateByUrl('/home');
+     this.router.navigateByUrl('/login');
      console.log(res);
    });
   }

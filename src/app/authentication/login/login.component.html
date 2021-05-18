@@ -6,6 +6,7 @@
           <h5 class="text-center">Sign in</h5>
         </div>
         <div class="card-body pt-md-5 pr-md-4 pl-md-4">
+          <div class="text-danger mb-2" *ngIf="errorMessage">{{errorMessage}}</div>
           <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <div class="form-group">
               <label for="email"><strong>Email</strong></label>

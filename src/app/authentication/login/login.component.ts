@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../auth.service';
 import {Router} from '@angular/router';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 loginForm: FormGroup;
+errorMessage;
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -29,8 +31,13 @@ loginForm: FormGroup;
 // tslint:disable-next-line:typedef
 onLogin(){
     this.authService.onLoginUser(this.loginForm.value).subscribe(res => {
+      console.log(res.data);
       localStorage.setItem('token', res.token);
+      localStorage.setItem('email', res.email);
       this.router.navigateByUrl('home');
+    },
+    err => {
+      this.errorMessage = 'Invalid Email or Password';
     });
 }
 }

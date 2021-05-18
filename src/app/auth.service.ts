@@ -23,5 +23,18 @@ export class AuthService {
   // tslint:disable-next-line:typedef
   onLogout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
+  }
+  // tslint:disable-next-line:typedef
+  isLoggedIn(){
+    if (localStorage.getItem('token')){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  // tslint:disable-next-line:typedef
+  currentUser(){
+    return localStorage.getItem('email');
   }
 }
