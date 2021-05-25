@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'conference';
+  // tslint:disable-next-line:typedef
+  getState(outlet){
+    return outlet.isActivated ? outlet.activatedRoute.snapshot.url[0].path : 'none';
+  }
 }

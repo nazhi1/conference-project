@@ -3,13 +3,13 @@ const Sequelize = require('sequelize')
 const sequelize = require('../util/database')
 
 const Event = sequelize.define('event',{
-  eventID: {
+  id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  userID: {
+  user_id: {
     type: Sequelize.INTEGER,
     allowNull: false
   },

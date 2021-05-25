@@ -15,7 +15,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptorService} from './auth-interceptor.service';
 import { SettingComponent } from './setting/setting.component';
 import { PresentationComponent } from './presentation/presentation.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ConferenceSetupComponent } from './conference-setup/conference-setup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PresentationComponent } from './presentation/presentation.component';
     CalendarComponent,
     PageNotFoundComponent,
     SettingComponent,
-    PresentationComponent
+    PresentationComponent,
+    ConferenceSetupComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { PresentationComponent } from './presentation/presentation.component';
     AuthenticationModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

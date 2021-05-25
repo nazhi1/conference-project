@@ -19,7 +19,7 @@ exports.registerUser = async (req,res,next)=>{
     const user = await User.create({first_name, last_name, email, password: hashedPassword
 
     })
-    const token = jwt.sign({ userId: user.UserID}, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user.id}, process.env.JWT_SECRET, {
       expiresIn: "1d"
     })
     res.json({first_name:user.first_name,last_name:user.last_name,email:user.email,token})
@@ -36,7 +36,7 @@ exports.login = async (req,res,next)=>{
     if (!user) return next(new Error('Email does not exist'));
     const validPassword = await validatePassword(password, user.password);
     if (!validPassword) return next(new Error('Password is not correct'))
-    const token = jwt.sign({ userId: user.UserID }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
       expiresIn: "1d"
     });
     res.json({first_name:user.first_name,last_name:user.last_name,email:user.email,token})

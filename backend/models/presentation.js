@@ -3,18 +3,18 @@ const Sequelize = require('sequelize')
 const sequelize = require('../util/database')
 
 const Presentation = sequelize.define('presentation',{
-  presentationID: {
+  id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  userID: {
+  user_id: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  eventID: {
-    type: Sequelize.STRING,
+  event_id: {
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   title: {
